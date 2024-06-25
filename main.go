@@ -3,7 +3,8 @@ package main
 import (
 	// "fmt"
 	// cr "patterns/creational"
-    bh "patterns/behavioral"
+	"fmt"
+	bh "patterns/behavioral"
 )
 
 
@@ -26,15 +27,29 @@ func main() {
      //
      // cache.Add("e", "5")
 
-     shirtItem := bh.NewItem("Nike shirt")
-     cus1 := &bh.Customer{}
-     cus2 := &bh.Customer{}
-     cus1.SetID("123")
-     cus2.SetID("456")
+     // shirtItem := bh.NewItem("Nike shirt")
+     // cus1 := &bh.Customer{}
+     // cus2 := &bh.Customer{}
+     // cus1.SetID("123")
+     // cus2.SetID("456")
+     //
+     // shirtItem.Register(cus1)
+     // shirtItem.Register(cus2)
+     //
+     //
+     // shirtItem.UpdataAvailability()
+     pizza := &bh.Margaretta{}
+     pizzaWithCheese := &bh.CheeseTopping {
+         Pizza: pizza,
+     }
 
-     shirtItem.Register(cus1)
-     shirtItem.Register(cus2)
+     pizzaWithVeggie := &bh.VeggieTopping {
+         Pizza: pizza,
+     }
 
+     both := &bh.VeggieTopping{Pizza: pizzaWithCheese}
 
-     shirtItem.UpdataAvailability()
+     fmt.Printf("with cheese only %d\n", pizzaWithCheese.GetPrice())
+     fmt.Printf("with veggie only %d\n", pizzaWithVeggie.GetPrice())
+     fmt.Printf("with both only %d\n", both.GetPrice())
 }
